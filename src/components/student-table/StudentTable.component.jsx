@@ -7,7 +7,9 @@ const StudentTable = () => {
     useEffect(() => {
         Axios.get('http://localhost:1337/api/read').then((response) => {
             setUserList(response.data)
-        })
+        }).catch((err) =>
+            alert(`Error loading Api, ${err}`)
+        )
     })
     const deleteUser = (id) => {
         Axios.delete(`http://localhost:1337/api/delete/${id}`)
